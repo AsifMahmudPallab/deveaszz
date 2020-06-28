@@ -3,7 +3,7 @@ import { Component, h, Host,Prop } from '@stencil/core';
 
 @Component({
     tag: 'dz-vline',
-    styleUrl: 'vline.scss'
+    styleUrl: 'dz-vline.css'
 })
 export class DzVline {
 	@Prop() display: string;
@@ -13,12 +13,13 @@ export class DzVline {
     
 
     //add Display and vline number
-    var addSpan;
+    var addsDpan;
     if(this.display){ 
     	this.display.split(" ").map((cur)=>{
-    		addSpan+= " vline-"+cur ;
+    		addsDpan+= " vline-"+cur ;
     	})
     }  
+
 
     //add offset at a vline
     var addsOffset;
@@ -37,14 +38,11 @@ export class DzVline {
     }
 
      let vline = document.querySelectorAll('dz-vline');
-    //  let vline2 = document.querySelector('dz-vline');
      vline.forEach(cur=>cur.classList.remove('undefined'));
-
-//    vline2.map(cur=>cur.classList.remove('undefined'))
     
 
         return (
-            <Host class={`${addSpan} ${addsOffset} ${addRule}`}></Host>
+            <Host class={`${addsDpan} ${addsOffset} ${addRule}`}></Host>
         );
     }
 }
